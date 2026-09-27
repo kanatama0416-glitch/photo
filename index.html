@@ -123,6 +123,61 @@ img,svg{display:block;width:100%}
 .work-15 .photo-button{aspect-ratio:1/1}
 .work-16{grid-column:8/13;margin-top:17vw}
 .work-16 .photo-button{aspect-ratio:4/5}
+.collections{
+  padding:clamp(86px,10vw,150px) var(--pad) clamp(110px,13vw,190px);
+  border-top:1px solid var(--line);
+}
+.collection-list{border-top:1px solid var(--line)}
+.collection-card{
+  width:100%;display:grid;grid-template-columns:minmax(120px,20vw) 1fr;gap:26px;align-items:center;
+  border:0;border-bottom:1px solid var(--line);padding:18px 0;background:transparent;text-align:left;cursor:pointer;
+}
+.collection-cover{height:clamp(105px,15vw,210px);overflow:hidden;background:#e9e6df}
+.collection-cover img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.collection-card:hover .collection-cover img{transform:scale(1.02)}
+.collection-info{
+  display:grid;grid-template-columns:1fr 1fr auto;align-items:center;
+  font-size:clamp(18px,2.8vw,40px);letter-spacing:-.025em;
+}
+.collection-info span:nth-child(2){
+  font-family:Georgia,"Yu Mincho",serif;font-size:.7em;color:var(--muted);
+}
+.collection-info .arrow{font-size:.72em}
+.project-view{
+  position:fixed;z-index:90;inset:0;background:var(--paper);overflow:auto;display:none;
+}
+.project-view.open{display:block}
+.project-bar{
+  height:64px;position:sticky;top:0;z-index:5;
+  display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;
+  padding:0 var(--pad);background:rgba(247,245,240,.94);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.project-bar .plain{
+  border:0;background:transparent;padding:0;text-align:left;cursor:pointer;font-size:11px;letter-spacing:.05em;text-transform:uppercase;
+}
+.project-bar #projectHeading{text-align:center;font-size:11px;letter-spacing:.08em}
+.project-hero-copy{
+  padding:clamp(72px,8vw,120px) var(--pad);
+  display:grid;grid-template-columns:1fr 2fr;gap:7vw;
+}
+.project-hero-copy h2{
+  font-family:Georgia,"Yu Mincho",serif;font-weight:400;
+  font-size:clamp(50px,8vw,116px);line-height:.9;letter-spacing:-.055em;margin:0;
+}
+.project-hero-copy div p{font-size:13px;line-height:2;margin:0 0 18px;max-width:470px;color:#4e4b46}
+.project-hero-copy .jp{font-family:Georgia,"Yu Mincho",serif;font-size:20px;color:var(--ink);margin-bottom:24px}
+.project-gallery{
+  padding:0 var(--pad) 120px;display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(16px,2vw,30px);
+}
+.project-photo{margin:0;cursor:zoom-in}
+.project-photo img{width:100%;height:auto;display:block}
+.project-photo:nth-child(4n+1){grid-column:1/9}
+.project-photo:nth-child(4n+2){grid-column:9/13;margin-top:13vw}
+.project-photo:nth-child(4n+3){grid-column:2/7;margin-top:5vw}
+.project-photo:nth-child(4n+4){grid-column:7/13;margin-top:10vw}
+.project-bottom{padding:0 var(--pad) 80px}
+.project-bottom .plain{border:0;background:transparent;padding:0;cursor:pointer;font-size:11px;text-transform:uppercase;letter-spacing:.06em}
 .archive{
   padding:clamp(86px,10vw,150px) var(--pad) clamp(100px,12vw,160px);
   background:#111;color:#f7f5f0;
@@ -185,6 +240,17 @@ img,svg{display:block;width:100%}
   .work{margin:0 0 52px!important}
   .work .photo-button{aspect-ratio:auto!important}
   .work .photo-button img{height:auto}
+  .collections{padding-left:14px;padding-right:14px}
+  .collection-card{grid-template-columns:112px 1fr;gap:14px;padding:14px 0}
+  .collection-cover{height:94px}
+  .collection-info{grid-template-columns:1fr auto;font-size:18px;gap:8px}
+  .collection-info span:nth-child(2){grid-column:1/2;font-size:12px}
+  .collection-info .arrow{grid-row:1/3;grid-column:2}
+  .project-bar{height:58px;padding:0 14px}
+  .project-hero-copy{grid-template-columns:1fr;padding:68px 16px;gap:34px}
+  .project-gallery{display:block;padding:0 14px 90px}
+  .project-photo{margin:0 0 54px!important}
+  .project-bottom{padding:0 16px 70px}
   .archive{padding-left:8px;padding-right:8px}
   .archive .section-top{padding-left:6px;padding-right:6px}
   .archive-grid{columns:2 140px;column-gap:6px}
@@ -201,6 +267,7 @@ img,svg{display:block;width:100%}
   <a class="brand" href="#top">KANA / PHOTOGRAPHS</a>
   <nav class="nav">
     <a href="#selected">Selected</a>
+    <a href="#collections">Collections</a>
     <a href="#archive">Archive 76</a>
     <a href="#about">About</a>
     <a href="https://www.instagram.com/tama_9947/" target="_blank" rel="noreferrer">Instagram ↗</a>
@@ -310,6 +377,35 @@ img,svg{display:block;width:100%}
     <img src="images/IMG_6022.webp" loading="lazy" decoding="async" alt="">
   </button>
 </figure></div>
+  </section>
+
+
+  <section class="collections" id="collections">
+    <div class="section-top">
+      <div>
+        <p class="eyebrow">Stories</p>
+        <h3>4 collections</h3>
+      </div>
+      <p>写真を「被写体」よりも、目が止まった理由で分けた4つのまとまり。</p>
+    </div>
+    <div class="collection-list">
+      <button class="collection-card" data-project="light">
+        <div class="collection-cover"><img src="images/IMG_4253.webp" loading="lazy" decoding="async" alt=""></div>
+        <div class="collection-info"><span>LIGHT</span><span>光と反射</span><span class="arrow">↗</span></div>
+      </button>
+      <button class="collection-card" data-project="night">
+        <div class="collection-cover"><img src="images/IMG_0987.webp" loading="lazy" decoding="async" alt=""></div>
+        <div class="collection-info"><span>NIGHT</span><span>夜の色</span><span class="arrow">↗</span></div>
+      </button>
+      <button class="collection-card" data-project="lives">
+        <div class="collection-cover"><img src="images/IMG_6367.webp" loading="lazy" decoding="async" alt=""></div>
+        <div class="collection-info"><span>SMALL LIVES</span><span>ちいさな住人</span><span class="arrow">↗</span></div>
+      </button>
+      <button class="collection-card" data-project="places">
+        <div class="collection-cover"><img src="images/IMG_7526.webp" loading="lazy" decoding="async" alt=""></div>
+        <div class="collection-info"><span>PLACES</span><span>場所のかたち</span><span class="arrow">↗</span></div>
+      </button>
+    </div>
   </section>
 
   <section class="archive" id="archive">
@@ -944,6 +1040,18 @@ img,svg{display:block;width:100%}
   <a href="#top">Back to top ↑</a>
 </footer>
 
+
+<div class="project-view" id="projectView" aria-hidden="true">
+  <div class="project-bar">
+    <button id="projectClose" class="plain" type="button">Close</button>
+    <div id="projectHeading"></div>
+    <span></span>
+  </div>
+  <div class="project-hero-copy" id="projectCopy"></div>
+  <div class="project-gallery" id="projectGallery"></div>
+  <div class="project-bottom"><button id="projectCloseBottom" class="plain" type="button">← Back to collections</button></div>
+</div>
+
 <div class="lightbox" id="lightbox" aria-hidden="true">
   <button type="button" id="lightboxClose" aria-label="close">×</button>
   <img id="lightboxImg" src="" alt="">
@@ -952,6 +1060,54 @@ img,svg{display:block;width:100%}
 <script>
 const lb=document.getElementById('lightbox');
 const lbImg=document.getElementById('lightboxImg');
+
+const projects={
+  light:{
+    title:"LIGHT",jp:"光と反射",
+    desc:"水面、窓、ガラス、影。見えているものが少しだけ別の形に変わる瞬間。",
+    files:["IMG_4253.webp","IMG_3833.webp","IMG_4446.webp","IMG_9445.webp","IMG_9477.webp","IMG_4052.webp"]
+  },
+  night:{
+    title:"NIGHT",jp:"夜の色",
+    desc:"暗い場所に残る灯りと、街が昼とは違う表情になる時間。",
+    files:["IMG_0987.webp","IMG_3747.webp","IMG_4154.webp","IMG_5596.webp","IMG_7202.webp","IMG_9913.webp"]
+  },
+  lives:{
+    title:"SMALL LIVES",jp:"ちいさな住人",
+    desc:"ふと目が合った生きものたち。街や旅先で、こちらを見返してきた瞬間。",
+    files:["IMG_6367.webp","IMG_7303.webp","IMG_7301.webp","IMG_5965.webp","IMG_6022.webp","IMG_2170.webp"]
+  },
+  places:{
+    title:"PLACES",jp:"場所のかたち",
+    desc:"建物、道、空、古いもの。歩いている途中で形として気になった景色。",
+    files:["IMG_7526.webp","IMG_7732.webp","IMG_7928.webp","IMG_6510.webp","IMG_6529.webp","IMG_2453(1).webp"]
+  }
+};
+const projectView=document.getElementById('projectView');
+const projectHeading=document.getElementById('projectHeading');
+const projectCopy=document.getElementById('projectCopy');
+const projectGallery=document.getElementById('projectGallery');
+function openProject(key){
+  const p=projects[key];if(!p)return;
+  projectHeading.textContent=p.title;
+  projectCopy.innerHTML='<h2>'+p.title+'</h2><div><p class="jp">'+p.jp+'</p><p>'+p.desc+'</p><p>'+String(p.files.length).padStart(2,'0')+' photographs</p></div>';
+  projectGallery.innerHTML=p.files.map((f,i)=>'<figure class="project-photo" data-full="images/'+f+'"><img src="images/'+f+'" loading="lazy" decoding="async" alt=""></figure>').join('');
+  projectGallery.querySelectorAll('[data-full]').forEach(el=>{
+    el.addEventListener('click',()=>{
+      lbImg.src=el.dataset.full;lb.classList.add('open');lb.setAttribute('aria-hidden','false');
+    });
+  });
+  projectView.classList.add('open');projectView.setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';projectView.scrollTop=0;
+}
+function closeProject(){
+  projectView.classList.remove('open');projectView.setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
+}
+document.querySelectorAll('[data-project]').forEach(b=>b.addEventListener('click',()=>openProject(b.dataset.project)));
+document.getElementById('projectClose').addEventListener('click',closeProject);
+document.getElementById('projectCloseBottom').addEventListener('click',closeProject);
+
 document.querySelectorAll('[data-full]').forEach(btn=>{
   btn.addEventListener('click',()=>{
     lbImg.src=btn.dataset.full;
@@ -965,7 +1121,7 @@ function closeLB(){
 }
 document.getElementById('lightboxClose').addEventListener('click',closeLB);
 lb.addEventListener('click',e=>{if(e.target===lb)closeLB()});
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLB()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(lb.classList.contains('open'))closeLB();else if(projectView.classList.contains('open'))closeProject();}});
 
 (async function(){
   const nodes=[...document.querySelectorAll('image[href^="images/archive-sprite-"]')];
