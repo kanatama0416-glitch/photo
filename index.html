@@ -3,48 +3,324 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>LOOK TWICE — tama_9947</title>
-<meta name="description" content="tama_9947 photography portfolio — light, reflection, night and small encounters.">
+<title>tama_9947 — photographs</title>
+<meta name="description" content="tama_9947 photography portfolio">
 <style>
-:root{--paper:#fffaf4;--ink:#171717;--muted:#76706a;--line:#ded8d2;--pink:#ffb7c9;--blue:#7ca8ff;--green:#a7d7bd;--yellow:#ffd36f}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif}a{color:inherit;text-decoration:none}img,svg{display:block;width:100%}
-.header{position:sticky;top:0;z-index:30;display:flex;justify-content:space-between;align-items:center;padding:16px 24px;border-bottom:1px solid rgba(23,23,23,.12);background:rgba(255,250,244,.86);backdrop-filter:blur(14px)}
-.logo{display:flex;gap:10px;align-items:center;font-weight:700;letter-spacing:.06em}.logo-dot{width:11px;height:11px;border-radius:50%;background:var(--pink);box-shadow:16px 0 0 var(--blue),32px 0 0 var(--yellow);margin-right:32px}.nav{display:flex;gap:10px;flex-wrap:wrap}.nav a{font-size:12px;padding:9px 13px;border:1px solid var(--ink);border-radius:999px;background:#fff}.nav a:hover{transform:translateY(-1px)}
-.hero{min-height:88vh;padding:clamp(28px,5vw,68px) clamp(18px,4vw,52px) 54px;display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(28px,5vw,70px);align-items:center;overflow:hidden}.kicker{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin:0 0 18px}.hero h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(52px,8.4vw,132px);line-height:.82;letter-spacing:-.055em;margin:0 0 24px;font-weight:500}.hero h1 span{display:block;margin-left:.65em;font-style:italic;color:#2d5e96}.hero-copy p{max-width:470px;line-height:1.85;color:var(--muted);font-size:14px}.count-pill{display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:10px 14px;border-radius:999px;background:var(--yellow);font-size:12px;font-weight:700;transform:rotate(-2deg)}
-.hero-collage{position:relative;min-height:620px}.shot{position:absolute;border:8px solid #fff;background:#fff;box-shadow:0 18px 55px rgba(0,0,0,.13)}.shot img{height:100%;object-fit:cover}.s1{width:56%;height:68%;left:4%;top:8%;transform:rotate(-4deg)}.s2{width:46%;height:48%;right:2%;top:1%;transform:rotate(5deg)}.s3{width:49%;height:42%;right:8%;bottom:2%;transform:rotate(-2deg)}.scribble{position:absolute;right:4%;bottom:39%;font-family:Georgia,serif;font-style:italic;font-size:20px;transform:rotate(8deg)}.scribble:after{content:"";display:block;width:90px;height:10px;border-bottom:2px solid var(--ink);border-radius:50%;transform:rotate(-7deg)}
-.manifesto{padding:75px clamp(18px,6vw,88px);border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;grid-template-columns:.55fr 1fr;gap:50px}.section-label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}.manifesto blockquote{margin:0;font-family:Georgia,"Times New Roman",serif;font-size:clamp(26px,4vw,52px);line-height:1.22}.manifesto em{font-style:italic;background:linear-gradient(transparent 64%,rgba(255,183,201,.7) 0)}
-.selected{padding:80px clamp(18px,4vw,52px)}.head-row{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:30px}.head-row h2{font-family:Georgia,serif;font-size:clamp(38px,5vw,72px);font-weight:500;letter-spacing:-.04em;margin:0}.head-row p{max-width:430px;font-size:13px;color:var(--muted);line-height:1.8}.selected-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}.sel{margin:0;overflow:hidden;background:#fff;padding:7px 7px 30px;box-shadow:0 12px 35px rgba(0,0,0,.08);position:relative}.sel img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}.sel:hover img{transform:scale(1.02)}.sel:after{content:attr(data-no);position:absolute;bottom:8px;right:10px;font-family:Georgia,serif;font-size:12px;color:var(--muted)}.sel:nth-child(1){grid-column:1/span 5;aspect-ratio:4/5;transform:rotate(-1deg)}.sel:nth-child(2){grid-column:7/span 6;aspect-ratio:5/4;margin-top:80px;transform:rotate(1deg)}.sel:nth-child(3){grid-column:2/span 4;aspect-ratio:1/1;margin-top:15px}.sel:nth-child(4){grid-column:7/span 4;aspect-ratio:3/4;margin-top:-10px;transform:rotate(-1.5deg)}.sel:nth-child(5){grid-column:1/span 6;aspect-ratio:5/3;margin-top:50px}.sel:nth-child(6){grid-column:8/span 5;aspect-ratio:4/5;margin-top:20px;transform:rotate(1.5deg)}
-.archive{padding:88px clamp(14px,3vw,38px) 100px;border-top:1px solid var(--line)}.archive-intro{display:flex;justify-content:space-between;align-items:end;gap:24px;margin:0 auto 28px;max-width:1450px}.archive-intro h2{font-family:Georgia,serif;font-size:clamp(46px,6vw,88px);font-weight:500;letter-spacing:-.045em;margin:0}.archive-intro p{font-size:13px;color:var(--muted);max-width:420px;line-height:1.7}.archive-grid{max-width:1450px;margin:0 auto;columns:4 250px;column-gap:12px}.archive-card{break-inside:avoid;margin:0 0 12px;background:#fff;border:1px solid rgba(0,0,0,.08);padding:5px 5px 22px;position:relative;box-shadow:0 8px 24px rgba(0,0,0,.045)}.archive-photo{overflow:hidden;background:#eee}.archive-photo svg{width:100%;height:100%}.archive-card figcaption{position:absolute;right:8px;bottom:5px;font-family:Georgia,serif;font-size:10px;color:#999}.archive-card:nth-child(5n+1){transform:rotate(-.3deg)}.archive-card:nth-child(7n+2){transform:rotate(.3deg)}
-.footer{padding:28px 24px 50px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:var(--muted);font-size:12px}.footer a{text-decoration:underline;text-underline-offset:4px}
-@media(max-width:900px){.hero{grid-template-columns:1fr;min-height:auto}.hero-collage{min-height:560px}.manifesto{grid-template-columns:1fr;gap:20px}.selected-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.sel:nth-child(n){grid-column:auto!important;margin-top:0!important;aspect-ratio:4/5}}
-@media(max-width:600px){.header{padding:12px 14px}.nav a{padding:7px 10px;font-size:10px}.hero{padding:28px 16px 38px}.hero h1{font-size:18vw}.hero-collage{min-height:420px}.shot{border-width:5px}.s1{width:61%;height:67%}.s2{width:47%;height:45%}.s3{width:50%;height:39%}.manifesto{padding:54px 18px}.selected{padding:55px 14px}.head-row{align-items:flex-start;flex-direction:column}.selected-grid{grid-template-columns:1fr 1fr}.archive{padding:55px 8px 70px}.archive-intro{padding:0 8px;align-items:flex-start;flex-direction:column}.archive-grid{columns:2 145px;column-gap:7px}.archive-card{margin-bottom:7px;padding:3px 3px 18px}}
+:root{
+  --paper:#f7f5f0;
+  --ink:#111;
+  --muted:#77736d;
+  --line:rgba(17,17,17,.14);
+  --accent:#9ebbd6;
+  --pad:clamp(16px,3.4vw,54px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Sans","Yu Gothic",sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+img,svg{display:block;width:100%}
+.site-header{
+  position:fixed;inset:0 0 auto 0;z-index:50;
+  height:64px;padding:0 var(--pad);
+  display:flex;align-items:center;justify-content:space-between;
+  color:#fff;mix-blend-mode:difference;
+}
+.brand{
+  font-size:13px;letter-spacing:.08em;font-weight:600;text-transform:uppercase;
+}
+.nav{display:flex;gap:22px;align-items:center}
+.nav a{font-size:11px;letter-spacing:.07em;text-transform:uppercase}
+.hero{
+  height:100svh;min-height:620px;position:relative;overflow:hidden;background:#111;
+}
+.hero img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  filter:saturate(.96) contrast(1.02);
+}
+.hero::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.04) 0%,rgba(0,0,0,.02) 55%,rgba(0,0,0,.35) 100%);
+}
+.hero-caption{
+  position:absolute;left:var(--pad);right:var(--pad);bottom:clamp(24px,4vw,52px);
+  z-index:2;display:flex;align-items:end;justify-content:space-between;gap:24px;color:#fff;
+}
+.hero-caption h1{
+  margin:0;font-family:Georgia,"Yu Mincho","Hiragino Mincho ProN",serif;
+  font-size:clamp(44px,8vw,112px);font-weight:400;letter-spacing:-.045em;line-height:.86;
+}
+.hero-caption p{
+  margin:0 0 6px;max-width:300px;font-size:12px;line-height:1.8;text-align:right;
+}
+.intro{
+  padding:clamp(100px,14vw,210px) var(--pad);
+  display:grid;grid-template-columns:1fr 3fr;gap:5vw;
+  border-bottom:1px solid var(--line);
+}
+.eyebrow{
+  margin:4px 0 0;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);
+}
+.intro h2{
+  margin:0;max-width:1080px;
+  font-family:Georgia,"Yu Mincho","Hiragino Mincho ProN",serif;
+  font-weight:400;font-size:clamp(34px,5.4vw,78px);line-height:1.22;letter-spacing:-.035em;
+}
+.intro h2 em{font-weight:400;font-style:italic;color:#6d8ba7}
+.selected{
+  padding:clamp(86px,10vw,150px) var(--pad) clamp(110px,14vw,210px);
+}
+.section-top{
+  display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:clamp(42px,6vw,86px);
+}
+.section-top h3{
+  margin:0;font-family:Georgia,"Yu Mincho",serif;font-size:clamp(34px,5vw,68px);
+  font-weight:400;letter-spacing:-.035em;
+}
+.section-top p{margin:0;max-width:400px;color:var(--muted);font-size:12px;line-height:1.8}
+.works{
+  display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(10px,1.6vw,24px);
+  align-items:start;
+}
+.work{margin:0}
+.photo-button{
+  border:0;padding:0;background:transparent;display:block;width:100%;cursor:zoom-in;
+}
+.photo-button img{width:100%;height:100%;object-fit:cover}
+.work-1{grid-column:1/9}
+.work-1 .photo-button{aspect-ratio:4/5}
+.work-2{grid-column:9/13;margin-top:13vw}
+.work-2 .photo-button{aspect-ratio:3/4}
+.work-3{grid-column:2/7;margin-top:8vw}
+.work-3 .photo-button{aspect-ratio:1/1}
+.work-4{grid-column:8/13;margin-top:3vw}
+.work-4 .photo-button{aspect-ratio:4/5}
+.work-5{grid-column:1/8;margin-top:11vw}
+.work-5 .photo-button{aspect-ratio:5/4}
+.work-6{grid-column:9/13;margin-top:18vw}
+.work-6 .photo-button{aspect-ratio:3/4}
+.work-7{grid-column:2/6;margin-top:10vw}
+.work-7 .photo-button{aspect-ratio:4/5}
+.work-8{grid-column:6/13;margin-top:4vw}
+.work-8 .photo-button{aspect-ratio:5/4}
+.work-9{grid-column:1/7;margin-top:12vw}
+.work-9 .photo-button{aspect-ratio:4/5}
+.work-10{grid-column:8/13;margin-top:21vw}
+.work-10 .photo-button{aspect-ratio:1/1}
+.work-11{grid-column:2/8;margin-top:9vw}
+.work-11 .photo-button{aspect-ratio:5/4}
+.work-12{grid-column:9/13;margin-top:4vw}
+.work-12 .photo-button{aspect-ratio:3/4}
+.work-13{grid-column:1/6;margin-top:13vw}
+.work-13 .photo-button{aspect-ratio:4/5}
+.work-14{grid-column:6/13;margin-top:5vw}
+.work-14 .photo-button{aspect-ratio:5/4}
+.work-15{grid-column:2/7;margin-top:11vw}
+.work-15 .photo-button{aspect-ratio:1/1}
+.work-16{grid-column:8/13;margin-top:17vw}
+.work-16 .photo-button{aspect-ratio:4/5}
+.archive{
+  padding:clamp(86px,10vw,150px) var(--pad) clamp(100px,12vw,160px);
+  background:#111;color:#f7f5f0;
+}
+.archive .section-top{margin-bottom:48px}
+.archive .section-top p,.archive .eyebrow{color:#9b9893}
+.archive-grid{
+  columns:5 220px;column-gap:8px;max-width:1600px;margin:0 auto;
+}
+.archive-card{
+  margin:0 0 8px;break-inside:avoid;position:relative;background:#202020;overflow:hidden;
+}
+.archive-photo{overflow:hidden;background:#202020}
+.archive-photo svg{display:block;width:100%;height:100%;background:#202020}
+.archive-card figcaption{
+  position:absolute;right:8px;bottom:7px;margin:0;
+  font-size:9px;letter-spacing:.08em;color:rgba(255,255,255,.6);
+  opacity:0;transition:opacity .2s ease;
+}
+.archive-card:hover figcaption{opacity:1}
+.about{
+  padding:clamp(100px,13vw,190px) var(--pad);
+  display:grid;grid-template-columns:1fr 2.2fr;gap:6vw;border-bottom:1px solid var(--line);
+}
+.about-copy{
+  max-width:860px;font-family:Georgia,"Yu Mincho","Hiragino Mincho ProN",serif;
+  font-size:clamp(26px,3.3vw,48px);line-height:1.5;letter-spacing:-.025em;
+}
+.about-copy p{margin:0 0 32px}
+.about-copy a{
+  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Sans",sans-serif;
+  font-size:11px;text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid var(--ink);padding-bottom:4px;
+}
+.footer{
+  padding:20px var(--pad) 34px;display:flex;justify-content:space-between;gap:20px;
+  font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;
+}
+.lightbox{
+  position:fixed;inset:0;z-index:100;background:rgba(9,9,9,.97);
+  display:none;place-items:center;padding:26px;
+}
+.lightbox.open{display:grid}
+.lightbox img{max-width:94vw;max-height:92vh;width:auto;height:auto;object-fit:contain}
+.lightbox button{
+  position:absolute;top:16px;right:18px;border:0;background:transparent;color:#fff;
+  font-size:32px;line-height:1;cursor:pointer;font-weight:200;
+}
+@media(max-width:800px){
+  .site-header{height:58px;padding:0 14px}
+  .nav{gap:12px}.nav a{font-size:9px}.nav a:nth-child(2){display:none}
+  .hero{min-height:560px}
+  .hero-caption{left:16px;right:16px;bottom:20px;display:block}
+  .hero-caption h1{font-size:16vw}
+  .hero-caption p{text-align:left;margin-top:14px;font-size:11px}
+  .intro{grid-template-columns:1fr;gap:24px;padding-left:16px;padding-right:16px}
+  .intro h2{font-size:10vw}
+  .selected{padding-left:14px;padding-right:14px}
+  .section-top{align-items:flex-start;flex-direction:column}
+  .works{display:block}
+  .work{margin:0 0:52px!important}
+  .work .photo-button{aspect-ratio:auto!important}
+  .work .photo-button img{height:auto}
+  .archive{padding-left:8px;padding-right:8px}
+  .archive .section-top{padding-left:6px;padding-right:6px}
+  .archive-grid{columns:2 140px;column-gap:6px}
+  .archive-card{margin-bottom:6px}
+  .about{grid-template-columns:1fr;gap:32px;padding-left:16px;padding-right:16px}
+  .about-copy{font-size:27px}
+  .footer{padding-left:16px;padding-right:16px}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
-<header class="header"><a class="logo" href="#top"><span class="logo-dot"></span>tama_9947</a><nav class="nav"><a href="#selected">SELECTED</a><a href="#archive">ALL 76</a><a href="https://www.instagram.com/tama_9947/" target="_blank" rel="noreferrer">INSTAGRAM ↗</a></nav></header>
+<header class="site-header">
+  <a class="brand" href="#top">KANA / PHOTOGRAPHS</a>
+  <nav class="nav">
+    <a href="#selected">Selected</a>
+    <a href="#archive">Archive 76</a>
+    <a href="#about">About</a>
+    <a href="https://www.instagram.com/tama_9947/" target="_blank" rel="noreferrer">Instagram ↗</a>
+  </nav>
+</header>
+
 <main id="top">
-<section class="hero"><div class="hero-copy"><p class="kicker">photographs by kana</p><h1>LOOK<span>TWICE.</span></h1><p>水面のゆがみ、夜の灯り、窓の向こう、猫の変な顔。<br>通り過ぎる前に、もう一回だけ見たくなったものを撮っています。</p><div class="count-pill">● ALL 76 PHOTOS ARE HERE</div></div><div class="hero-collage"><figure class="shot s1"><svg viewBox="0 0 320 467" preserveAspectRatio="xMidYMid meet" role="img" aria-label="photograph 1">
-          <image href="images/archive-sprite-01.webp" width="320" height="5182" />
-        </svg></figure><figure class="shot s2"><svg viewBox="0 3102 320 480" preserveAspectRatio="xMidYMid meet" role="img" aria-label="photograph 8">
-          <image href="images/archive-sprite-01.webp" width="320" height="5182" />
-        </svg></figure><figure class="shot s3"><svg viewBox="0 1867 320 480" preserveAspectRatio="xMidYMid meet" role="img" aria-label="photograph 17">
-          <image href="images/archive-sprite-02.webp" width="320" height="5431" />
-        </svg></figure><div class="scribble">things I looked at twice</div></div></section>
-<section class="manifesto"><div class="section-label">ABOUT THE PHOTOS</div><blockquote>きれいな景色そのものより、<br><em>「なんか気になる」</em> が残った瞬間。</blockquote></section>
-<section class="selected" id="selected"><div class="head-row"><div><div class="section-label">SELECTED</div><h2>Little discoveries</h2></div><p>まずは、今のサイトの入口になる6枚。空気の違う写真を混ぜて、かなちが何に目を止めるのかが見える並びにしています。</p></div><div class="selected-grid"><figure class="sel" data-no="01"><svg viewBox="0 467 320 480" preserveAspectRatio="xMidYMid meet" role="img" aria-label="photograph 2">
-          <image href="images/archive-sprite-01.webp" width="320" height="5182" />
-        </svg></figure><figure class="sel" data-no="02"><svg viewBox="0 1639 320 480" preserveAspectRatio="xMidYMid meet" role="img" aria-label="photograph 5">
-          <image href="images/archive-sprite-01.webp" width="320" height="5182" />
-        </svg></figure><figure class="sel" data-no="03"><svg viewBox="0 3582 320 480" preserveAspectRatio="xMidYMid meet" role="img" aria-label="photograph 9">
-          <image href="images/archive-sprite-01.webp" width="320" height="5182" />
-        </svg></figure><figure class="sel" data-no="04"><svg viewBox="0 4969 320 213" preserveAspectRatio="xMidYMid meet" role="img" aria-label="photograph 12">
-          <image href="images/archive-sprite-01.webp" width="320" height="5182" />
-        </svg></figure><figure class="sel" data-no="05"><svg viewBox="0 2347 320 236" preserveAspectRatio="xMidYMid meet" role="img" aria-label="photograph 18">
-          <image href="images/archive-sprite-02.webp" width="320" height="5431" />
-        </svg></figure><figure class="sel" data-no="06"><svg viewBox="0 4470 320 481" preserveAspectRatio="xMidYMid meet" role="img" aria-label="photograph 23">
-          <image href="images/archive-sprite-02.webp" width="320" height="5431" />
-        </svg></figure></div></section>
-<section class="archive" id="archive"><div class="archive-intro"><div><div class="section-label">FULL ARCHIVE</div><h2>All 76</h2></div><p>今回このチャットで送ってくれた写真を、いったん全部。縦横比も残したまま並べています。</p></div><div class="archive-grid"><figure class="archive-card" data-index="01">
+  <section class="hero">
+    <img src="images/IMG_2453(1).webp" alt="" fetchpriority="high">
+    <div class="hero-caption">
+      <h1>tama_9947</h1>
+      <p>Photography / light, reflection, night,<br>places and small encounters.</p>
+    </div>
+  </section>
+
+  <section class="intro">
+    <p class="eyebrow">Statement</p>
+    <h2>光や反射の向こうに、<br><em>一度通り過ぎたあとも残るもの</em>を撮っています。</h2>
+  </section>
+
+  <section class="selected" id="selected">
+    <div class="section-top">
+      <div>
+        <p class="eyebrow">Selected works</p>
+        <h3>Photographs</h3>
+      </div>
+      <p>説明より先に、写真を大きく見るためのページ。色も縦横比も、できるだけそのまま残しています。</p>
+    </div>
+    <div class="works">
+<figure class="work work-1">
+  <button class="photo-button" data-full="images/IMG_2453(1).webp" aria-label="写真を拡大">
+    <img src="images/IMG_2453(1).webp" loading="eager" decoding="async" alt="">
+  </button>
+</figure>
+<figure class="work work-2">
+  <button class="photo-button" data-full="images/IMG_4253.webp" aria-label="写真を拡大">
+    <img src="images/IMG_4253.webp" loading="eager" decoding="async" alt="">
+  </button>
+</figure>
+<figure class="work work-3">
+  <button class="photo-button" data-full="images/IMG_0987.webp" aria-label="写真を拡大">
+    <img src="images/IMG_0987.webp" loading="eager" decoding="async" alt="">
+  </button>
+</figure>
+<figure class="work work-4">
+  <button class="photo-button" data-full="images/IMG_3833.webp" aria-label="写真を拡大">
+    <img src="images/IMG_3833.webp" loading="lazy" decoding="async" alt="">
+  </button>
+</figure>
+<figure class="work work-5">
+  <button class="photo-button" data-full="images/IMG_4052.webp" aria-label="写真を拡大">
+    <img src="images/IMG_4052.webp" loading="lazy" decoding="async" alt="">
+  </button>
+</figure>
+<figure class="work work-6">
+  <button class="photo-button" data-full="images/IMG_7202.webp" aria-label="写真を拡大">
+    <img src="images/IMG_7202.webp" loading="lazy" decoding="async" alt="">
+  </button>
+</figure>
+<figure class="work work-7">
+  <button class="photo-button" data-full="images/IMG_9477.webp" aria-label="写真を拡大">
+    <img src="images/IMG_9477.webp" loading="lazy" decoding="async" alt="">
+  </button>
+</figure>
+<figure class="work work-8">
+  <button class="photo-button" data-full="images/IMG_7928.webp" aria-label="写真を拡大">
+    <img src="images/IMG_7928.webp" loading="lazy" decoding="async" alt="">
+  </button>
+</figure>
+<figure class="work work-9">
+  <button class="photo-button" data-full="images/IMG_7301.webp" aria-label="写真を拡大">
+    <img src="images/IMG_7301.webp" loading="lazy" decoding="async" alt="">
+  </button>
+</figure>
+<figure class="work work-10">
+  <button class="photo-button" data-full="images/IMG_7303.webp" aria-label="写真を拡大">
+    <img src="images/IMG_7303.webp" loading="lazy" decoding="async" alt="">
+  </button>
+</figure>
+<figure class="work work-11">
+  <button class="photo-button" data-full="images/IMG_4446.webp" aria-label="写真を拡大">
+    <img src="images/IMG_4446.webp" loading="lazy" decoding="async" alt="">
+  </button>
+</figure>
+<figure class="work work-12">
+  <button class="photo-button" data-full="images/IMG_5965.webp" aria-label="写真を拡大">
+    <img src="images/IMG_5965.webp" loading="lazy" decoding="async" alt="">
+  </button>
+</figure>
+<figure class="work work-13">
+  <button class="photo-button" data-full="images/IMG_2170.webp" aria-label="写真を拡大">
+    <img src="images/IMG_2170.webp" loading="lazy" decoding="async" alt="">
+  </button>
+</figure>
+<figure class="work work-14">
+  <button class="photo-button" data-full="images/IMG_4154.webp" aria-label="写真を拡大">
+    <img src="images/IMG_4154.webp" loading="lazy" decoding="async" alt="">
+  </button>
+</figure>
+<figure class="work work-15">
+  <button class="photo-button" data-full="images/IMG_5596.webp" aria-label="写真を拡大">
+    <img src="images/IMG_5596.webp" loading="lazy" decoding="async" alt="">
+  </button>
+</figure>
+<figure class="work work-16">
+  <button class="photo-button" data-full="images/IMG_6022.webp" aria-label="写真を拡大">
+    <img src="images/IMG_6022.webp" loading="lazy" decoding="async" alt="">
+  </button>
+</figure></div>
+  </section>
+
+  <section class="archive" id="archive">
+    <div class="section-top">
+      <div>
+        <p class="eyebrow">Full archive</p>
+        <h3>All 76</h3>
+      </div>
+      <p>今回送ってもらった写真をすべて掲載しています。</p>
+    </div>
+    <div class="archive-grid"><figure class="archive-card" data-index="01">
       <div class="archive-photo" style="aspect-ratio:320/467">
         <svg viewBox="0 0 320 467" preserveAspectRatio="xMidYMid meet" role="img" aria-label="photograph 1">
           <image href="images/archive-sprite-01.webp" width="320" height="5182" />
@@ -651,15 +927,46 @@
         </svg>
       </div>
       <figcaption>76</figcaption>
-    </figure></div></section>
-</main>
-<footer class="footer"><span>© tama_9947 / kana</span><a href="#top">BACK TO TOP ↑</a></footer>
+    </figure></div>
+  </section>
 
-<style>
-.hero-collage .shot svg,.selected-grid .sel svg{width:100%;height:100%;display:block}
-.hero-collage .shot svg image,.selected-grid .sel svg image{width:320px}
-</style>
+  <section class="about" id="about">
+    <p class="eyebrow">About</p>
+    <div class="about-copy">
+      <p>水面のゆがみ、夜の灯り、窓の向こう、道ばたの小さな生きもの。目に入ったものをそのまま記録するというより、少し見え方が変わった瞬間を残したいと思っています。</p>
+      <a href="https://www.instagram.com/tama_9947/" target="_blank" rel="noreferrer">@tama_9947 on Instagram ↗</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <span>© tama_9947</span>
+  <a href="#top">Back to top ↑</a>
+</footer>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button type="button" id="lightboxClose" aria-label="close">×</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
 <script>
+const lb=document.getElementById('lightbox');
+const lbImg=document.getElementById('lightboxImg');
+document.querySelectorAll('[data-full]').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    lbImg.src=btn.dataset.full;
+    lb.classList.add('open');
+    lb.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+  });
+});
+function closeLB(){
+  lb.classList.remove('open');lb.setAttribute('aria-hidden','true');lbImg.src='';document.body.style.overflow='';
+}
+document.getElementById('lightboxClose').addEventListener('click',closeLB);
+lb.addEventListener('click',e=>{if(e.target===lb)closeLB()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLB()});
+
 (async function(){
   const nodes=[...document.querySelectorAll('image[href^="images/archive-sprite-"]')];
   const paths=[...new Set(nodes.map(n=>n.getAttribute('href')))];
@@ -671,7 +978,8 @@
       loaded[p]='data:image/webp;base64,'+(await r.text()).trim();
     }catch(e){console.error('sprite load failed',p,e)}
   }));
-  nodes.forEach(n=>{const p=n.getAttribute('href');if(loaded[p]) n.setAttribute('href',loaded[p]);});
+  nodes.forEach(n=>{const p=n.getAttribute('href');if(loaded[p])n.setAttribute('href',loaded[p])});
 })();
 </script>
-</body></html>
+</body>
+</html>
