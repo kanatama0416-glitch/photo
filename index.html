@@ -36,13 +36,28 @@ img,svg{display:block;width:100%}
 .label{margin:0;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
 .serif{font-family:Georgia,"Yu Mincho","Hiragino Mincho ProN",serif}
 .hero{
-  display:grid;grid-template-columns:minmax(0,1.1fr) minmax(360px,.9fr);
-  min-height:calc(100svh - 62px);border-bottom:1px solid var(--line);
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(220px,320px);
+  gap:clamp(44px,7vw,120px);
+  align-items:center;
+  min-height:calc(100svh - 62px);
+  padding:clamp(90px,10vw,150px) var(--pad);
+  border-bottom:1px solid var(--line);
 }
-.hero-photo{margin:0;padding:0;display:flex;align-items:stretch;background:#ddd}
-.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 44%}
+.hero-photo{
+  margin:0;
+  width:100%;
+  max-width:320px;
+  justify-self:end;
+  background:transparent;
+}
+.hero-photo img{
+  width:100%;
+  height:auto;
+  object-fit:contain;
+}
 .hero-copy{
-  padding:clamp(54px,7vw,110px) var(--pad);
+  padding:0;
   display:flex;flex-direction:column;justify-content:center;
 }
 .hero-name{
@@ -165,15 +180,16 @@ img,svg{display:block;width:100%}
 .lightbox button{position:absolute;top:15px;right:18px;border:0;background:transparent;color:#fff;font-size:32px;cursor:pointer}
 @media(max-width:820px){
   .nav a:nth-child(2),.nav a:nth-child(4){display:none}
-  .hero{grid-template-columns:1fr 1fr}
+  .hero{grid-template-columns:minmax(0,1fr) minmax(200px,280px);gap:34px}
   .do-row{grid-template-columns:44px 1fr}.do-row p{display:none}
   .archive-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
 @media(max-width:620px){
   .site-header{height:56px;padding:0 14px}.nav{gap:12px}.nav a{font-size:9px}
-  .hero{display:flex;flex-direction:column;min-height:auto}
-  .hero-photo{order:1}.hero-photo img{height:auto;object-fit:contain}
-  .hero-copy{order:2;padding:54px 16px 66px}
+  .hero{display:flex;flex-direction:column;min-height:auto;padding:74px 16px 70px;gap:42px}
+  .hero-copy{order:1;padding:0}
+  .hero-photo{order:2;max-width:280px;align-self:flex-start;justify-self:auto}
+  .hero-photo img{height:auto;object-fit:contain}
   .hero-name{font-size:24vw}.hero-role{margin:12px 0 34px}.hero-bio{font-size:15px;line-height:1.9}
   .hero-meta{padding-top:48px}
   .section{padding-left:16px;padding-right:16px}
