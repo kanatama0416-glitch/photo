@@ -182,8 +182,11 @@ img,svg{display:block;max-width:100%}
   display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:16px;
   border-bottom:1px solid var(--line)
 }
-.about-photo{grid-column:1/5;margin:0;align-self:start}
-.about-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;filter:grayscale(.12)}
+.about-photo{grid-column:1/5;margin:0;align-self:start;position:relative;padding:0 12% 14% 0}
+.about-main{width:100%;aspect-ratio:4/5;object-fit:cover;filter:grayscale(.12)}
+.about-echo{position:absolute;object-fit:cover;border:6px solid var(--bg);box-shadow:0 18px 50px rgba(0,0,0,.26)}
+.about-echo.echo-a{width:36%;aspect-ratio:4/3;right:0;bottom:0}
+.about-echo.echo-b{width:27%;aspect-ratio:3/4;left:-7%;top:11%}
 .about-copy{grid-column:6/13;padding-top:3vw}
 .about-copy h2{
   margin:10px 0 38px;font-size:clamp(54px,8vw,126px);line-height:.78;letter-spacing:-.065em;text-transform:uppercase
@@ -261,6 +264,14 @@ img,svg{display:block;max-width:100%}
   padding:clamp(42px,5vw,80px) var(--pad) clamp(90px,10vw,160px);
   columns:3;column-gap:clamp(14px,1.8vw,28px)
 }
+.project-gallery.loading{columns:auto;min-height:48vh;display:grid;place-items:center}
+.gallery-loader{
+  display:flex;align-items:center;gap:12px;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)
+}
+.gallery-loader:before{
+  content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 1s ease-in-out infinite alternate
+}
+@keyframes pulse{to{transform:scale(1.8);opacity:.35}}
 .project-photo{
   display:block;break-inside:avoid;margin:0 0 clamp(14px,1.8vw,28px)!important;
   background:#111;overflow:hidden;cursor:zoom-in
@@ -337,7 +348,9 @@ img,svg{display:block;max-width:100%}
   .collection-side{text-align:left;padding:0;display:flex;gap:12px;align-items:center}
   .collection-card:after{display:none}
   .about{display:block;padding:100px 16px}
-  .about-photo{width:66vw;max-width:310px;margin:0 0 62px auto}
+  .about-photo{width:72vw;max-width:330px;margin:0 0 72px auto;padding:0 10% 12% 0}
+  .about-echo{border-width:4px}
+  .about-echo.echo-b{left:-9%;top:9%}
   .about-copy h2{font-size:clamp(58px,18vw,92px)}
   .about-lead{font-size:clamp(27px,8vw,40px)}
   .contact{min-height:64svh;padding:100px 16px 28px}
@@ -455,11 +468,15 @@ img,svg{display:block;max-width:100%}
   </section>
 
   <section class="about" id="about">
-    <figure class="about-photo reveal"><img src="images/kana-profile.webp" alt="Kana" loading="lazy"></figure>
+    <figure class="about-photo reveal">
+      <img class="about-main" src="images/kana-profile.webp" alt="Kana" loading="lazy">
+      <img class="about-echo echo-a" src="images/IMG_0987.webp" alt="" loading="lazy" aria-hidden="true">
+      <img class="about-echo echo-b" src="images/IMG_6367.webp" alt="" loading="lazy" aria-hidden="true">
+    </figure>
     <div class="about-copy reveal">
       <p class="kicker">03 / About</p>
       <h2>Kana</h2>
-      <p class="about-lead">I photograph the moment an ordinary scene stops looking ordinary.</p>
+      <p class="about-lead">I photograph the moment the familiar becomes unfamiliar.</p>
       <p class="about-body">写真歴10年。気になったものを撮っています。同じ場所でも、光や距離、タイミングが少し変わるだけで、まったく別のものに見える瞬間があります。水に映った景色、窓の向こう、暗い場所に残る色、小さな生きもの。そういう「もう一度見たくなるもの」を集めています。</p>
       <div class="about-meta"><span>Photography<br>Japan</span><span>Instagram<br>@tama_9947</span></div>
     </div>
@@ -1034,7 +1051,7 @@ img,svg{display:block;max-width:100%}
   </div>
   <div class="project-hero" id="projectHero"></div>
   <div class="project-gallery" id="projectGallery"></div>
-  <div class="project-bottom"><button id="projectCloseBottom" class="plain" type="button">← Back to collections</button><span class="kicker">LOOK TWICE</span></div>
+  <div class="project-bottom"><button id="projectCloseBottom" class="plain" type="button">← Back to collections</button><button id="projectNext" class="plain" type="button">Next collection →</button></div>
 </div>
 
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Photo viewer">
@@ -1094,40 +1111,94 @@ img,svg{display:block;max-width:100%}
   var projectHero=document.getElementById('projectHero');
   var projectGallery=document.getElementById('projectGallery');
   var projectProgress=document.getElementById('projectProgress');
+  var projectNext=document.getElementById('projectNext');
   var lastTrigger=null;
   var activePhotos=[];
   var activePhotoIndex=0;
+  var currentProjectKey=null;
+  var projectOrder=['light','night','lives','places'];
+  var spriteMap={};
+  var spritePromise=null;
 
-  function openProject(key,trigger){
+  function ensureSprites(){
+    if(spritePromise)return spritePromise;
+    var sourceImages=Array.prototype.slice.call(document.querySelectorAll('.archive-source image[href^="images/archive-sprite-"]'));
+    var paths=[];
+    sourceImages.forEach(function(n){
+      var p=n.getAttribute('href');
+      n.setAttribute('data-sprite-key',p);
+      if(paths.indexOf(p)<0)paths.push(p);
+    });
+    spritePromise=Promise.all(paths.map(function(p){
+      return fetch(p.replace(/\.webp$/,'.b64')).then(function(r){
+        if(!r.ok)throw new Error('HTTP '+r.status);
+        return r.text();
+      }).then(function(text){
+        spriteMap[p]='data:image/webp;base64,'+text.trim();
+      }).catch(function(err){
+        console.warn('Sprite fallback used for',p,err);
+      });
+    }));
+    return spritePromise;
+  }
+  function applySprites(root){
+    root.querySelectorAll('image[data-sprite-key]').forEach(function(n){
+      var p=n.getAttribute('data-sprite-key');
+      if(spriteMap[p])n.setAttribute('href',spriteMap[p]);
+    });
+  }
+
+  async function openProject(key,trigger){
     var p=projects[key];if(!p)return;
-    lastTrigger=trigger||document.activeElement;
+    currentProjectKey=key;
+    lastTrigger=trigger||lastTrigger||document.activeElement;
     projectHeading.textContent=p.title;
     projectProgress.textContent=p.index;
     projectHero.innerHTML='<h2>'+p.title+'</h2><div class="project-info"><p class="jp">'+p.jp+'</p><p>'+p.desc+'</p><p>'+String(p.count).padStart(2,'0')+' photographs</p></div>';
-    projectGallery.innerHTML='';
-    document.querySelectorAll('.archive-source .archive-card[data-category="'+key+'"]').forEach(function(card){
-      var clone=card.cloneNode(true);
-      clone.classList.add('project-photo');
-      clone.setAttribute('tabindex','0');
-      clone.setAttribute('role','button');
-      clone.setAttribute('aria-label','Open photograph '+clone.getAttribute('data-index'));
-      projectGallery.appendChild(clone);
-    });
-    activePhotos=Array.prototype.slice.call(projectGallery.querySelectorAll('.project-photo'));
-    activePhotos.forEach(function(card,i){
-      card.addEventListener('click',function(){openLightbox(i)});
-      card.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openLightbox(i)}});
-    });
+    var nextKey=projectOrder[(projectOrder.indexOf(key)+1)%projectOrder.length];
+    projectNext.textContent='Next — '+projects[nextKey].title+' →';
+
     projectView.classList.add('open');
     projectView.setAttribute('aria-hidden','false');
     document.body.classList.add('no-scroll');
     projectView.scrollTop=0;
+    projectGallery.classList.add('loading');
+    projectGallery.innerHTML='<div class="gallery-loader">Loading photographs</div>';
     document.getElementById('projectClose').focus();
+
+    await ensureSprites();
+    if(!projectView.classList.contains('open')||currentProjectKey!==key)return;
+
+    var cards=Array.prototype.slice.call(document.querySelectorAll('.archive-source .archive-card[data-category="'+key+'"]'));
+    projectGallery.innerHTML='';
+    cards.forEach(function(card,i){
+      var clone=card.cloneNode(true);
+      clone.classList.add('project-photo');
+      clone.setAttribute('tabindex','0');
+      clone.setAttribute('role','button');
+      clone.setAttribute('aria-label','Open photograph '+(i+1)+' of '+cards.length);
+      var caption=clone.querySelector('figcaption');
+      if(caption)caption.remove();
+      clone.querySelectorAll('image[href^="images/archive-sprite-"]').forEach(function(n){
+        n.setAttribute('data-sprite-key',n.getAttribute('href'));
+      });
+      projectGallery.appendChild(clone);
+    });
+    applySprites(projectGallery);
+    activePhotos=Array.prototype.slice.call(projectGallery.querySelectorAll('.project-photo'));
+    activePhotos.forEach(function(card,i){
+      card.addEventListener('click',function(){openLightbox(i)});
+      card.addEventListener('keydown',function(e){
+        if(e.key==='Enter'||e.key===' '){e.preventDefault();openLightbox(i)}
+      });
+    });
+    projectGallery.classList.remove('loading');
   }
   function closeProject(){
     closeLightbox();
     projectView.classList.remove('open');
     projectView.setAttribute('aria-hidden','true');
+    currentProjectKey=null;
     document.body.classList.remove('no-scroll');
     if(lastTrigger&&lastTrigger.focus)lastTrigger.focus();
   }
@@ -1136,6 +1207,11 @@ img,svg{display:block;max-width:100%}
   });
   document.getElementById('projectClose').addEventListener('click',closeProject);
   document.getElementById('projectCloseBottom').addEventListener('click',closeProject);
+  projectNext.addEventListener('click',function(){
+    if(!currentProjectKey)return;
+    var nextKey=projectOrder[(projectOrder.indexOf(currentProjectKey)+1)%projectOrder.length];
+    openProject(nextKey,lastTrigger);
+  });
 
   var lb=document.getElementById('lightbox');
   var lbFrame=document.getElementById('lightboxFrame');
